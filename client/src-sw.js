@@ -28,7 +28,8 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // TODO: Implement asset caching
 registerRoute(({ request }) =>
-workbox.strategies.cacheFirst({
+['style', 'script', 'worker'].includes(request.destination),
+new CacheFirst({
   cacheName: 'assets',
   plugins: [
     new ExpirationPlugin({
@@ -41,3 +42,4 @@ workbox.strategies.cacheFirst({
   ],
 }),
 );
+
