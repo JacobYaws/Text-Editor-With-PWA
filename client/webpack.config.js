@@ -10,25 +10,31 @@ const {InjectManifest} = require('workbox-webpack-plugin');
 module.exports = () => {
   return {
     mode: 'development',
+    // The entry point for files to be used in the webpage.
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+    // Outputs the bundles for the webpage
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+    // Integrating plugins for the PWA
     plugins: [
+      // Helps to create the HTML for the webpage.
       new HtmlWebpackPlugin({
         template: './index.html',
         title: 'Just Another Text Editor'
       }),
+      // Injects the service worker for the webpage.
       new InjectManifest({
         swSrc: './src-sw.js',
         swDest: 'src-sw.js',
         // swDest: 'service-worker.js',
 
       }), 
+      // Creates the manifest.json for the webpage.
       new WebpackPwaManifest({
         name: 'Just Another Text Editor',
         short_name: 'J.A.T.E.',
@@ -52,6 +58,7 @@ module.exports = () => {
     module: {
       rules: [
         {
+          // Used to load CSS
           test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
@@ -59,6 +66,7 @@ module.exports = () => {
           test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
+            // Babel helps with using ES6
             loader: 'babel-loader',
             options: {
               presets: ['@babel/preset-env'],

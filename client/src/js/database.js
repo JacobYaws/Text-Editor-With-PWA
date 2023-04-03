@@ -13,25 +13,26 @@ const initdb = async () =>
   });
 
 // TODO: Add logic to a method that accepts some content and adds it to the database
+// The function for updating the database.
 export const putDb = async (content) => {
   console.log('Update to database');
+  // Creates the connection to the database ('jate') and accesses value '1'
   const jateDb = await openDB('jate', 1);
-  const tx = jateDb.transaction('jate', 'readwrite');
-  const store = tx.objectStore('jate');
-  const request = store.put({ id: 1, value: content});
-  const result =  await request;
+  // Creates the changes to the database ('jate') and declares the permissions to the file. It then accesses the stored object of 'jate' and updates the key with the new changes (stored in content). 
+  const result = await jateDb.transaction('jate', 'readwrite').objectStore('jate').put({ id: 1, value: content});
   console.log('Data saved to the database', result);}
 
 
 // TODO: Add logic for a method that gets all the content from the database
+//The function for getting data from the database.
 export const getDb = async () => {
   console.log('Get from the database');
+  // Creates the connection to the database ('jate') and accesses value '1'
   const jateDb = await openDB('jate', 1);
-  const tx = jateDb.transaction('jate', 'readonly');
-  const store = tx.objectStore('jate');
-  const request = store.get(1);
-  const result = await request;
+  // Grabs the data from the database ('jate') and declares the permissions to the file. It then accesses the stored object of 'jate' and gets the contents of value 1.
+  const result = await jateDb.transaction('jate', 'readwrite').objectStore('jate').store.get(1);
   console.log('result.value', result);
+  // Returns the value data of the result.
   return result?.value;
 }
 
