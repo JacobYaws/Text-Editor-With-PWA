@@ -16,7 +16,7 @@ const initdb = async () =>
 // The function for updating the database.
 export const putDb = async (content) => {
   console.log('Update to database');
-  // Creates the connection to the database ('jate') and accesses value '1'
+  // Creates the connection to the database ('jate') and gets the version desired.
   const jateDb = await openDB('jate', 1);
   // Creates the changes to the database ('jate') and declares the permissions to the file. It then accesses the stored object of 'jate' and updates the key with the new changes (stored in content). 
   const result = await jateDb.transaction('jate', 'readwrite').objectStore('jate').put({ id: 1, value: content});
@@ -29,8 +29,8 @@ export const getDb = async () => {
   console.log('Get from the database');
   // Creates the connection to the database ('jate') and accesses value '1'
   const jateDb = await openDB('jate', 1);
-  // Grabs the data from the database ('jate') and declares the permissions to the file. It then accesses the stored object of 'jate' and gets the contents of value 1.
-  const result = await jateDb.transaction('jate', 'readwrite').objectStore('jate').store.get(1);
+  // Grabs the data from the database ('jate') and declares the permissions to the file. It then accesses the stored object of 'jate' and gets the version desired.
+  const result = await jateDb.transaction('jate', 'readwrite').objectStore('jate').get(1);
   console.log('result.value', result);
   // Returns the value data of the result.
   return result?.value;
