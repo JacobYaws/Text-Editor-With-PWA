@@ -1,42 +1,37 @@
 # Text Editor Starter Code
 
-AS A developer
-I WANT to create notes or code snippets with or without an internet connection
-SO THAT I can reliably retrieve them for later use
+## Description
 
-GIVEN a text editor web application
-<!-- WHEN I open my application in my editor
-THEN I should see a client server folder structure -->
+In this project, I was tasked with creating a text editing PWA that can be used without an internet connection and still save the user's changes to the application.
+I also made the application installable as a standalone product, and any changes that happen within the installable product will also be shown in the web application.
 
-<!-- WHEN I run `npm run start` from the root directory
-THEN I find that my application should start up the backend and serve the client -->
+## Table of Contents
+[Install](#install)
+[Overview](#overview)
+[Screenshots](#screenshots)
+[Links](#links)
 
-<!-- WHEN I run the text editor application from my terminal
-THEN I find that my JavaScript files have been bundled using webpack -->
+## Install
+If you want to run the application locally, follow these steps:
+To install the application, you will need to install the required npm packages for the project by running 'npm i' in a command line terminal.
+After the install is complete, run 'npm run build' and then 'npm start' to get the application to start at `http://localhost:3000`.
 
-<!-- WHEN I run my webpack plugins
-THEN I find that I have a generated HTML file, service worker, and a manifest file -->
+## Overview
 
-<!-- WHEN I use next-gen JavaScript in my application
-THEN I find that the text editor still functions in the browser without errors -->
+ - For this project, I used a webpack and a service worker to help create the application. The webpack essentially creates all of the contents needed to run the application and bundle them up for the webpage to read and display.
+ - The webpack includes plugins needed to create the application, such as the HTML structuring a manifest that contains general data about the application, and a service worker to help build the rest of the application.
+ - IndexedDB was used to create a client side database storage for making changes to the application. The data stored in this database is stored in the browser so changes can still be made without an internet connection.
+ - The application can be installed to the user's local machine to use outside of a web browser. The standalone application is essentially another Google Chrome browser that runs on the applications deployed site, without any options to navigate outside of the application. This essentially updates the IndexedDB stored in the browser so the changes will be shared across all open Chrome applications.
+ - Babel was also used to help with asynchronous operations.
 
-<!-- WHEN I open the text editor
-THEN I find that IndexedDB has immediately created a database storage -->
 
-WHEN I enter content and subsequently click off of the DOM window
-THEN I find that the content in the text editor has been saved with IndexedDB
+## Screenshots
 
-WHEN I reopen the text editor after closing it
-THEN I find that the content in the text editor has been retrieved from our IndexedDB
+<img src="">
 
-WHEN I click on the Install button
-THEN I download my web application as an icon on my desktop
 
-WHEN I load my web application
-THEN I should have a registered service worker using workbox
+## Links
 
-WHEN I register a service worker
-THEN I should have my static assets pre cached upon loading along with subsequent pages and static assets
+-Github link: https://github.com/JacobYaws/Text-Editor-With-PWA
 
-WHEN I deploy to Heroku
-THEN I should have proper build scripts for a webpack application
+    -To download, navigate to the repository and click on the green 'Code' button. Copy the ssh link and clone it in a terminal by using 'git clone git@github.com:JacobYaws/Text-Editor-With-PWA.git'
