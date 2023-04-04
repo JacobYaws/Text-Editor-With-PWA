@@ -27,7 +27,8 @@ After the install is complete, run 'npm run build' and then 'npm start' to get t
 
 ## Screenshots
 
-<img src="">
+<img src="https://github.com/JacobYaws/Text-Editor-With-PWA/blob/main/assets/Assign19screenshot1.png">
+<img src="https://github.com/JacobYaws/Text-Editor-With-PWA/blob/main/assets/Assign19screenshot2.png">
 
 
 ## Links
@@ -35,3 +36,5 @@ After the install is complete, run 'npm run build' and then 'npm start' to get t
 -Github link: https://github.com/JacobYaws/Text-Editor-With-PWA
 
     -To download, navigate to the repository and click on the green 'Code' button. Copy the ssh link and clone it in a terminal by using 'git clone git@github.com:JacobYaws/Text-Editor-With-PWA.git'
+
+-Link to the deployed site: https://quiet-eyrie-50087.herokuapp.com/
